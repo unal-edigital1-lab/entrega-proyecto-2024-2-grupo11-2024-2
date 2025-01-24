@@ -17,7 +17,7 @@
   Bogotá, Colombia  
   saleonn@unal.edu.co  
 
-- Bryan Daniel Marchan Castr  
+- zBryan Daniel Marchan Castr  
   *Ingeniería Eléctrica*  
   Universidad Nacional de Colombia  
   Bogotá, Colombia  
@@ -59,7 +59,7 @@ El sistema será implementado en una FPGA y validado mediante simulación y prue
 4. Sistema de Bloqueo:  
    - Bloquear el sistema tras tres intentos fallidos consecutivos.  
    - Activar una alarma sonora (zumbador).  
-5. Uso de FPGA: Diseñar el sistema lógico y de control en la FPGA Cyclone IV mediante Quartus Prime.  
+5. Uso de FPGA Diseñar el sistema lógico y de control en la FPGA Cyclone IV mediante Quartus Prime.  
 6. Reinicio Manual: Incluir un botón para reiniciar el sistema tras el bloqueo.  
 7. Simulación y Validación: Probar el diseño mediante simulación en Quartus Prime y pruebas físicas en la FPGA.
 
