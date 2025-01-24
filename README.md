@@ -121,14 +121,14 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 
 ## Cronograma
 
-| Actividad                | Duración     | Fecha Estimada     |
-|--------------------------|--------------|--------------------|
-| Investigación y diseño   | 10 semana    | DD/MM/AAAA         |
-| Desarrollo en Quartus    | 11 semana    | DD/MM/AAAA         |
-| Simulación del circuito  | 12 semana    | DD/MM/AAAA         |
-| Ensamblaje en protoboard | 13 semana    | DD/MM/AAAA         |
-| Pruebas y ajustes finales| 14 semana    | DD/MM/AAAA         |
-| Elaboración del informe  | 15 semana    | DD/MM/AAAA         |
+| Actividad                | Duración Semana| Fecha Estimada     |
+|--------------------------|----------------|--------------------|
+| Investigación y diseño   |       10       | 24/01/2025         |
+| Desarrollo en Quartus    |       11       | 28/01/2025         |
+| Simulación del circuito  |       12       | 04/02/2025         |
+| Ensamblaje en protoboard |       13       | 11/02/2025         |
+| Pruebas y ajustes finales|       14       | 18/02/2025         |
+| Elaboración del informe  |       15       | 25/02/2025         |
 
 ---
 
