@@ -17,7 +17,7 @@
   Bogotá, Colombia  
   saleonn@unal.edu.co  
 
-- **Bryan Daniel Marchan Castro**  
+- Bryan Daniel Marchan Castro  
   *Ingeniería Eléctrica*  
   Universidad Nacional de Colombia  
   Bogotá, Colombia  
