@@ -123,12 +123,12 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 
 | Actividad                | Duración     | Fecha Estimada     |
 |--------------------------|--------------|--------------------|
-| Investigación y diseño   | 1 semana     | DD/MM/AAAA         |
-| Desarrollo en Quartus    | 2 semanas    | DD/MM/AAAA         |
-| Simulación del circuito  | 1 semana     | DD/MM/AAAA         |
-| Ensamblaje en protoboard | 2 semanas    | DD/MM/AAAA         |
-| Pruebas y ajustes finales| 1 semana     | DD/MM/AAAA         |
-| Elaboración del informe  | 1 semana     | DD/MM/AAAA         |
+| Investigación y diseño   | 10 semana    | DD/MM/AAAA         |
+| Desarrollo en Quartus    | 11 semana    | DD/MM/AAAA         |
+| Simulación del circuito  | 12 semana    | DD/MM/AAAA         |
+| Ensamblaje en protoboard | 13 semana    | DD/MM/AAAA         |
+| Pruebas y ajustes finales| 14 semana    | DD/MM/AAAA         |
+| Elaboración del informe  | 15 semana    | DD/MM/AAAA         |
 
 ---
 
