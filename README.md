@@ -218,6 +218,9 @@ Segmentos <= segm; -- Asignación de la señal a la salida Segmentos
 
 end TecladoMatricial;
 ```
+Asignacion de pines:
+* ![pines](https://github.com/unal-edigital1-lab/lab02-2024-2-grupo11-2024-2/blob/master/Captura%20de%20pantalla%202025-01-24%20202646.png)
+
 [video funcionamiento](https://drive.google.com/file/d/17z23vGBHdEPNfBG5SV9F3vzCaU1XL8vD/view?usp=sharing)
 
 ## Pantalla LCD 
