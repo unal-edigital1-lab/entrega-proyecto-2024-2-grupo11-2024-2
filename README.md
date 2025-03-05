@@ -143,6 +143,20 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 
 ---
 
+## Teclado Matricial 
+```verilog
+
+```
+[video funcionamiento](https://drive.google.com/file/d/17z23vGBHdEPNfBG5SV9F3vzCaU1XL8vD/view?usp=sharing)
+
+## Pantalla LCD 
+```verilog
+
+```
+[video funcionamiento]()
+
+
+
 ## Conclusión
 
 El Sistema de Control de Puerta con Contraseña, NFC y FPGA es un proyecto educativo que combina teoría y práctica. Este proyecto permite consolidar conocimientos de electrónica digital, programación de microcontroladores, diseño con FPGAs y lenguajes de descripción de hardware, aplicados a una solución de seguridad realista y funcional.
