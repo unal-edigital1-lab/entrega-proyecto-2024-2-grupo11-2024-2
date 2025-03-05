@@ -151,7 +151,93 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 
 ## Pantalla LCD 
 ```verilog
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+USE WORK.COMANDOS_LCD_REVD.ALL;
 
+entity LIB_LCD_INTESC_REVD is
+GENERIC(
+    FPGA_CLK : INTEGER := 100_000_000
+);
+
+PORT(
+    CLK: IN STD_LOGIC;
+    -- PUERTOS DE LA LCD
+    RS : OUT STD_LOGIC;
+    RW : OUT STD_LOGIC;
+    ENA : OUT STD_LOGIC;
+    DATA_LCD : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+);
+
+end LIB_LCD_INTESC_REVD;
+
+architecture Behavioral of LIB_LCD_INTESC_REVD is
+
+CONSTANT NUM_INSTRUCCIONES : INTEGER := 12;
+
+-- COMPONENTES Y SEÑALES PARA LCD
+component PROCESADOR_LCD_REVD is
+GENERIC(
+    FPGA_CLK : INTEGER := 50_000_000;
+    NUM_INST : INTEGER := 1
+);
+PORT(
+    CLK : IN STD_LOGIC;
+    VECTOR_MEM : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+    C1A,C2A,C3A,C4A : IN STD_LOGIC_VECTOR(39 DOWNTO 0);
+    C5A,C6A,C7A,C8A : IN STD_LOGIC_VECTOR(39 DOWNTO 0);
+    RS : OUT STD_LOGIC;
+    RW : OUT STD_LOGIC;
+    ENA : OUT STD_LOGIC;
+    BD_LCD : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    DATA : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    DIR_MEM : OUT INTEGER RANGE 0 TO NUM_INSTRUCCIONES
+);
+end component PROCESADOR_LCD_REVD;
+
+COMPONENT CARACTERES_ESPECIALES_REVD is
+PORT(
+    C1,C2,C3,C4 : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
+    C5,C6,C7,C8 : OUT STD_LOGIC_VECTOR(39 DOWNTO 0)
+);
+end COMPONENT CARACTERES_ESPECIALES_REVD;
+
+type ram is array (0 to NUM_INSTRUCCIONES) of std_logic_vector(8 downto 0);
+signal INST : ram := (others => (others => '0'));
+signal blcd : std_logic_vector(7 downto 0):= (others => '0');
+signal vector_mem : STD_LOGIC_VECTOR(8 DOWNTO 0) := (others => '0');
+signal c1s,c2s,c3s,c4s : std_logic_vector(39 DOWNTO 0) := (others => '0');
+signal c5s,c6s,c7s,c8s : std_logic_vector(39 DOWNTO 0) := (others => '0');
+signal dir_mem : integer range 0 to NUM_INSTRUCCIONES := 0;
+
+begin
+
+-- INSTANCIACIÓN DE COMPONENTES
+u1: PROCESADOR_LCD_REVD
+GENERIC map( FPGA_CLK => FPGA_CLK, NUM_INST => NUM_INSTRUCCIONES )
+PORT map( CLK, VECTOR_MEM, C1S, C2S, C3S, C4S, C5S, C6S, C7S, C8S, RS, RW, ENA, BLCD, DATA_LCD, DIR_MEM );
+
+U2 : CARACTERES_ESPECIALES_REVD
+PORT MAP( C1S, C2S, C3S, C4S, C5S, C6S, C7S, C8S );
+
+VECTOR_MEM <= INST(DIR_MEM);
+
+-- INSTRUCCIONES PARA ESCRIBIR "HOLA MUNDO" EN LA LCD
+INST(0) <= LCD_INI("11"); -- Inicializamos LCD
+INST(1) <= POS(1,1); -- Cursor en línea 1, columna 1
+INST(2) <= CHAR(MP);
+INST(3) <= CHAR(R);
+INST(4) <= CHAR(O);
+INST(5) <= CHAR(Y);
+INST(6) <= CHAR(E); -- Espacio
+INST(7) <= CHAR(C);
+INST(8) <= CHAR(T);
+INST(9) <= CHAR(O);
+INST(10) <= CHAR_ASCII(X"20"); -- Espacio
+INST(11) <= CHAR(a);
+INST(12) <= CODIGO_FIN(1); -- Finalizamos
+
+end Behavioral;
 ```
 [video funcionamiento]()
 
