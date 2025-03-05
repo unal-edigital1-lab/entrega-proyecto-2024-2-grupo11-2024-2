@@ -224,6 +224,7 @@ Asignacion de pines:
 [video funcionamiento](https://drive.google.com/file/d/17z23vGBHdEPNfBG5SV9F3vzCaU1XL8vD/view?usp=sharing)
 
 ## Pantalla LCD 
+El modulo de pantalla nos permite visualizar los estados tras la comparacion de los digitos ingresados con el teclado matricial y la contraseña predeterminada.
 ```verilog
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
