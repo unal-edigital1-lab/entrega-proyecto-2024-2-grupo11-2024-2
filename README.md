@@ -314,6 +314,8 @@ INST(12) <= CODIGO_FIN(1); -- Finalizamos
 
 end Behavioral;
 ```
+* ![pines](https://github.com/unal-edigital1-lab/entrega-proyecto-2024-2-grupo11-2024-2/blob/main/2.jpeg)
+
 [video funcionamiento](https://drive.google.com/file/d/1815cJtCKZybjZDVTcco8qGg2A90Iz54p/view?usp=sharing)
 
 
