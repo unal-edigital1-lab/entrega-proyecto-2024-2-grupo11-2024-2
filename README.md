@@ -145,7 +145,76 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 
 ## Teclado Matricial 
 ```verilog
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+Entity teclado_7seg is
+PORT (
+        Reloj     : in  std_logic;
+        col       : in  STD_LOGIC_VECTOR (3 downto 0);
+        filas     : out STD_LOGIC_VECTOR (3 downto 0);
+        display   : out STD_LOGIC;
+        Segmentos : out STD_LOGIC_VECTOR (7 downto 0)
+    );
+end teclado_7seg;
+
+architecture TecladoMatricial of teclado_7seg is
+
+component LIB_TEC_MATRICIAL_4x4_INTESC_RevA is
+        GENERIC (
+            FREQ_CLK : INTEGER := 50000000
+        );
+		  
+Port (
+    CLK        : in  STD_LOGIC;
+    COLUMNAS   : in  STD_LOGIC_VECTOR (3 downto 0);
+    FILAS      : out STD_LOGIC_VECTOR (3 downto 0);
+    BOTON_PRES : out STD_LOGIC_VECTOR (3 downto 0);
+    IND        : out STD_LOGIC
+);
+end component LIB_TEC_MATRICIAL_4x4_INTESC_RevA;
+
+SIGNAL boton_pres: STD_LOGIC_VECTOR (3 downto 0); -- Señal para almacenar el botón presionado
+SIGNAL ind : STD_LOGIC; -- Señal para indicar si se ha presionado un botón
+SIGNAL segm : STD_LOGIC_VECTOR (7 downto 0) := "00000000"; -- Señal para los segmentos del display
+
+begin
+
+libreria : LIB_TEC_MATRICIAL_4x4_INTESC_RevA  
+    Generic map (FREQ_CLK => 50000000)
+    Port map (Reloj, col, filas, boton_pres, ind);
+
+Proceso_teclado_7seg: process (Reloj) -- Eliminado boton_pres_segm
+begin
+    if rising_edge (Reloj) then
+        if ind = '1' then
+            case boton_pres is
+                when "0000" => segm <= "11000000"; -- 0
+                when "0001" => segm <= "11111001"; -- 1
+                when "0010" => segm <= "10100100"; -- 2
+                when "0011" => segm <= "10110000"; -- 3
+                when "0100" => segm <= "10011001"; -- 4
+                when "0101" => segm <= "10010010"; -- 5
+                when "0110" => segm <= "10000010"; -- 6
+                when "0111" => segm <= "11111000"; -- 7
+                when "1000" => segm <= "10000000"; -- 8
+                when "1001" => segm <= "10011000"; -- 9
+                when "1010" => segm <= "10001000"; -- A
+                when "1011" => segm <= "10000011"; -- B
+                when "1100" => segm <= "11000110"; -- C
+                when "1101" => segm <= "10100001"; -- D
+                when "1110" => segm <= "10000110"; -- E
+                when "1111" => segm <= "10001110"; -- F
+                when others => segm <= "11111111"; -- Apagar display en caso de error
+            end case;
+        end if;
+    end if;
+end process;
+
+display <= '0'; -- Asignación de valor a la salida display
+Segmentos <= segm; -- Asignación de la señal a la salida Segmentos
+
+end TecladoMatricial;
 ```
 [video funcionamiento](https://drive.google.com/file/d/17z23vGBHdEPNfBG5SV9F3vzCaU1XL8vD/view?usp=sharing)
 
