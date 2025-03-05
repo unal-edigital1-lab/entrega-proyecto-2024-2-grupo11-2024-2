@@ -144,6 +144,8 @@ El control de acceso es una necesidad crítica en aplicaciones de seguridad. Est
 ---
 
 ## Teclado Matricial 
+El modulo de teclado recorre las filas del teclado matricial activando una por una, para hacerlo creamos un contador que cambia con cada flanco de reloj, como son cuatro filas creamos el contador de dos bits para asi tener las cuatro posibles combinaciones, si se presiona una tecla la columna cerrara el circuito y mediante esta combinacion de fila y columna encendidas podemos identificar la tecla presionada. Cuando identificamos la tecla presionada enviamos una salida con el binario de la tecla correspondiente. 
+
 ```verilog
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
